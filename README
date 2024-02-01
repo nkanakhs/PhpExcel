@@ -1,0 +1,38 @@
+
+* Script Name: mainCsv.php
+* Author: Nick Kanakis
+* Date: 1/27/2024
+
+The project is organized using Docker, for better portability, but you can run it from your host os if you have PHP installed.
+
+HOW TO RUN:
+
+->Terminal
+Open a terminal or a CMD at the same location where the files are and run the following command:
+
+php mainCsv.php
+
+->Using docker
+
+Steps:
+1) Open a terminal and execute: docker build -t php-app .  (build the image)
+2) Then execute: docker run -d --name php-app (runs the container)
+3) Now, we have to connect to the container, execute : docker exec -it php-app /bin/bash
+4) Inside the container run the script: php mainCsv.php
+
+
+**There are two main files: mainCsv.php , CsvProcessor.php
+
+-mainCsv.php: The file where we create the instance of the CsvProcessor class and we ask for the user's input.
+
+-CsvProcessor.php: Is the class where the main functions are located. In the begging we define an array with the .csv files we will 
+work with. In this example the files are two, but the code works for unlimited files, as long as we insert their names in the array.
+
+Functions: 
+
+*readfiles() : In this function, we loop through the files and create a final file (finalScore.csv) with the scores calculated together 
+for each individual.
+
+*SearchForName() : This function accepts a user's name, search the final file and prints the user's score ,if found, else it prints 
+an error message.
+
